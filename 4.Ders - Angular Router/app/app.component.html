@@ -1,0 +1,21 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+<select [(ngModel)]="seciliTakim">
+  <option *ngFor="let takim of takimlar" value="{{ takim.yildiz }}" >{{ takim.takimAdi }}</option>
+</select>
+<div>{{ seciliTakim }}</div>
+
+<div style="float:left;width: 200px">
+  <ul>
+    <li>Ana Sayfa</li>
+    <li><a routerLink="/hakkimizda">Hakkımızda</a></li>
+    <li><a routerLink="/login">Login</a></li>
+  </ul>
+</div>
+<div style="float:left;width: 600px">
+  <router-outlet></router-outlet>
+</div>

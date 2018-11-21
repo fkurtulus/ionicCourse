@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar color="secondary">
+    <ion-title>Detaylar</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <img src="assets/imgs/team.png"/>
+    <ion-card-content>
+        <ion-card-title *ngIf="takimAdi=='gs'">
+          Galatasaray
+        </ion-card-title>
+        <ion-card-title *ngIf="takimAdi=='fb'">
+          Fenerbahçe
+        </ion-card-title>
+        <ion-card-title *ngIf="takimAdi=='bjk'">
+          Beşiktaş
+        </ion-card-title>
+        <ion-card-title *ngIf="takimAdi=='bursa'">
+          Bursaspor
+        </ion-card-title>
+        <img *ngIf="takimAdi=='gs'" src="assets/imgs/gs.png"/>
+        <img *ngIf="takimAdi=='fb'" src="assets/imgs/fb.png"/>
+        <img *ngIf="takimAdi=='bjk'" src="assets/imgs/bjk.png"/>
+        <img *ngIf="takimAdi=='bursa'" src="assets/imgs/bursa.png"/>
+
+        <p>
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

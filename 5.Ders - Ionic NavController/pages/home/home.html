@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="turuncu">
+    <ion-title>
+      APP1
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item (tap)="sayfaDegistir('gs')">
+      <ion-avatar item-start>
+        <img src="assets/imgs/gs.png">
+      </ion-avatar>
+      <h2>Galatasaray</h2>
+      <p>4 Yıldızlı Tek Takım</p>
+    </ion-item>
+    <ion-item  (tap)="sayfaDegistir('fb')">
+      <ion-avatar item-start>
+        <img src="assets/imgs/fb.png">
+      </ion-avatar>
+      <h2>Fenerbahçe</h2>
+      <p>3 Yıldızlı Takım</p>
+    </ion-item>
+    <ion-item  (tap)="sayfaDegistir('bjk')">
+      <ion-avatar item-start>
+        <img src="assets/imgs/bjk.png">
+      </ion-avatar>
+      <h2>Beşiktaş</h2>
+      <p>3 Yıldızlı Diğer Takım</p>
+    </ion-item>
+    <ion-item  (tap)="sayfaDegistir('bursa')">
+      <ion-avatar item-start>
+        <img src="assets/imgs/bursa.png">
+      </ion-avatar>
+      <h2>Bursaspor</h2>
+      <p>0 Yıldızlı Takım</p>
+    </ion-item>
+  </ion-list>
+</ion-content>

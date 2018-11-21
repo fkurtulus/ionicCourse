@@ -1,0 +1,19 @@
+page-home {
+    .col{
+        border-right: 1px solid #5c5c5c;
+        border-bottom: 1px solid #5c5c5c;
+    }
+    .col:nth-child(3n){
+        border-right: none;
+    }   
+    ion-icon{
+        font-size:30px;
+        padding-top:10px;
+    }
+    button{
+        background: #fff;
+        height: 110px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
