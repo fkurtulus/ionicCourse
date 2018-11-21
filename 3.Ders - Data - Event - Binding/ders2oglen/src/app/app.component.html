@@ -1,0 +1,44 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title | uppercase }}!
+  </h1>
+  <br>
+  <h1>Küçük Harfle {{ title | lowercase }}</h1>
+</div>
+<div>
+  <input [(ngModel)]="yazi" type="text" name="yazi" />
+  <div>{{ yazi }}</div>
+</div>
+<div>
+  <select (change)="gunDegisti($event.target.value)" name="gunler">
+    <option>Gün Seçin</option>
+    <option *ngFor="let gun of gunler">{{ gun }}</option>
+  </select>
+  <button (click)="tikla()" name="gonder">GÖNDER</button>
+</div>
+<div>
+  <span *ngIf="uygunmu; else elseCaliscak">
+    Uygundur.
+  </span>
+  <ng-template #elseCaliscak>
+    Uygun değildir.
+  </ng-template>
+  
+</div>
+<div>
+<span *ngIf="uygunmu; then trueCaliscak; else falseCalisicak"></span>
+<ng-template #trueCaliscak>
+  True Calıştı
+</ng-template>
+<ng-template #falseCalisicak>
+  False Çalıştı
+</ng-template>
+</div>
+<div>
+  {{ 150.99 | currency:'USD' }}<br>
+  {{ 250.00 | currency:'EUR' }}
+</div>
+<div>
+  KDV Hariç Fiyat : {{ 100.00 | currency:'EUR' }}<br>
+  KDV Dahil Fiyat : {{ 100.00 | kdv | currency:'EUR' }}
+</div>

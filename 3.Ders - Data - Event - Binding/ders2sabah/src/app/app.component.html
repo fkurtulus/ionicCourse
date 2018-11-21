@@ -1,0 +1,40 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title | uppercase }}!
+  </h1><br>
+  <h1>Küçük Harfle {{ title | lowercase }}</h1>
+</div>
+
+
+<input type="text" [(ngModel)]="yazi" name="yazi" />
+<p>{{ yazi }}</p>
+<p>
+  <select name="aylar" (change)="aylarDegisti($event.target.value)">
+    <option *ngFor="let ay of aylar" > {{ ay }} </option>
+  </select>
+  <button name="tiklandi" (click)="tiklandi()" >GÖNDER</button>
+</p>
+<p>
+  <span *ngIf="uygunmu; else elseCalis">
+    Uygundur
+  </span>
+  <ng-template #elseCalis>
+    Uygun Değildir
+  </ng-template> 
+  
+</p>
+<p>
+  <span *ngIf="uygunmu; then trueCalisti; else falseCalisti"></span>
+  <ng-template #trueCalisti>True Çalıştı</ng-template>
+  <ng-template #falseCalisti>False Çalıştı</ng-template>
+</p>
+<p>
+  {{ 155.18 | currency:'USD' }}<br>
+  {{ 1250.99 | currency:'EUR' }}
+</p>
+<p>
+  KDV Hariç Fiyat {{ 100 | currency:'EUR' }}<bR>
+  KDV Dahil Fiyat {{ 100 | kdv | currency:'EUR' }}
+</p>
+
+
