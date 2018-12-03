@@ -1,57 +1,39 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { WeatherProvider } from '../../providers/weather/weather';
-import { Storage } from  '@ionic/storage'
+import { Storage } from '@ionic/storage';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  weather:any;
-
-  //object
-  location: {
-    city:string,
-    state: string
+  konum: {
+    sehir:string,
+    ulke:string
   }
+  havaDurumu:any;
+  constructor(public navCtrl: NavController,public havaDurumuProvider: WeatherProvider, public storage:Storage) {
 
-  constructor(public navCtrl: NavController, private weatherProvider: WeatherProvider, private storage: Storage) {
-      //store the location in Ionic storage similar to HTML5 local storage
   }
-
-  //Similar to ngOnInit() in Angular 2 or 4
   ionViewWillEnter(){
-
-    this.storage.get('location').then((val) => {
-      if(val != null) {
-          this.location = JSON.parse(val);
-      } else {
-        this.location = {
-          city: 'Miami',
-          state: 'FL'
-        }
+   this.storage.get('konum').then((val)=>{
+    if(val!=null){
+      this.konum = JSON.parse(val);  
+    }else{
+      this.konum={
+        sehir:'istanbul',
+        ulke:'Turkey'
       }
-
-      this.weatherProvider.getWeather(this.location.city, this.location.state).subscribe(
-        weather =>{
-          //console.log(JSON.stringify(weather));
-          this.weather = weather.current_observation;
-        }
-      );
-
-    });
-      /* this.location = {
-        city: 'Miami',
-        state: 'FL'
+    }
+    this.havaDurumuProvider.getHavaDurumu(this.konum.sehir,this.konum.ulke).subscribe(
+      havaDurumuDonen => {
+        console.log(JSON.stringify(havaDurumuDonen));
+        this.havaDurumu = havaDurumuDonen.current_observation;
       }
- */
-       /* this.weatherProvider.getWeather(this.location.city, this.location.state).subscribe(
-        weather =>{
-          //console.log(JSON.stringify(weather));
-          this.weather = weather.current_observation;
-        }
-      ); */
+    )
+    
+   });
   }
 
 }
